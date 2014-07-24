@@ -69,6 +69,11 @@ function sleek(data) {
     return store.get(key);
   };
 
+  model.del = function(key) {
+    store.del(key);
+    return model;
+  };
+
   return model;
 }
 

@@ -137,3 +137,18 @@ describe("format/compute", function() {
 
 });
 
+
+describe('delete', function() {
+
+	var user;
+	beforeEach(function() {
+		user = model({
+			beep: 'boop'
+		});
+	});
+
+	it('should delete property', function() {
+		user.del('beep');
+		assert.equal(user('beep'), undefined);
+	});
+});
