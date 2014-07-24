@@ -32,6 +32,8 @@ user('path');
 // http://github.com/bredele
 ```
 
+[![view on requirebin](http://requirebin.com/badge.png)](http://requirebin.com/?gist=c3241f2d128beba1f4bc)
+
 ## API
 
   Create a new sleek store with optional `data`.
