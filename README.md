@@ -43,6 +43,9 @@ Here's a live example:
 
 [![view on requirebin](http://requirebin.com/badge.png)](http://requirebin.com/?gist=c3241f2d128beba1f4bc)
 
+and the entire API
+[![view on requirebin](http://requirebin.com/badge.png)](http://requirebin.com/?gist=e2644afe62f34cb21d24)
+
 ## API
 
   Create a new sleek store with optional `data`.
