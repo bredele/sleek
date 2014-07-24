@@ -23,5 +23,8 @@
   "homepage": "https://github.com/bredele/sleek",
   "devDependencies": {
     "mocha": "^1.20.1"
+  },
+  "dependencies": {
+    "datastore": "^1.0.5"
   }
 }

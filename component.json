@@ -4,7 +4,9 @@
   "description": "a stylish version of datastore",
   "version": "0.0.1",
   "keywords": [],
-  "dependencies": {},
+  "dependencies": {
+    "bredele/datastore": "*"
+  },
   "development": {},
   "license": "MIT",
   "main": "index.js",
