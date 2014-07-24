@@ -1,6 +1,6 @@
 {
   "name": "sleek",
-  "version": "0.0.0",
+  "version": "0.1.1",
   "description": "a stylish version of datastore",
   "main": "index.js",
   "scripts": {
