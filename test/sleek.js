@@ -36,7 +36,12 @@ describe("setter/getter", function() {
 		});
 		assert.equal(user('beep'), 'bar');
 		assert.equal(user('github'), 'bredele');
+	});
 
+	it('should allow ugly chaining', function() {
+		user('beep', 'foo')('boop', 'bar');
+		assert.equal(user('beep'), 'foo');
+		assert.equal(user('boop'), 'bar');
 	});
 	
 });
