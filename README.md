@@ -34,8 +34,6 @@ user('path');
 
 ## API
 
-### constructor
-
   Create a new sleek store with optional `data`.
 
 ```js
@@ -142,14 +140,15 @@ user(function(store, str) {
 user.del('nickname');
 ```
 
-### .on(name, fn)
+### emitter
 
-  Listen events on Store.
+  Listen or emit events on a sleek store.
 
 ```js
-user.on('change', function(name, val, previous) {
+user.on('change name', function(val, previous) {
   ...
 });
+user('name', 'olivier');
 ```
 
 ## Plugins
@@ -161,8 +160,8 @@ Here's a list of availaible plugins:
 to get real time updates from a store in server side.
 
 ```js
-  store.use(mirror('mychannel'));
-  store.set('hello', 'world');
+  user(mirror('mychannel'));
+  user('hello', 'world');
 ```
   
   - [path](http://github.com/bredele/store-path)
@@ -170,8 +169,8 @@ to get real time updates from a store in server side.
 to access nested data easily:
 
 ```js
-  store.path('country.canada'); //get
-  store.path('country.canada.city', 'calgary');//set
+  user.path('country.canada'); //get
+  user.path('country.canada.city', 'calgary');//set
 ```
 
   - [supplant](http://github.com/bredele/store-supplant)
@@ -179,10 +178,10 @@ to access nested data easily:
 to create template engines on both client/server sides:
 
 ```js
-  store.filter('upper', function(str) {
+  user.filter('upper', function(str) {
     return str.toUpperCase();
   });
-  store.supplant('my name is {{name} | upper}');
+  user.supplant('my name is {{name} | upper}');
 ```
 
   - [queue](http://github.com/bredele/emitter-queue)
@@ -190,8 +189,8 @@ to create template engines on both client/server sides:
 to queue events.
 
 ```js
-  store.queue('hello', 'world');
-  store.on('hello', function(val) {
+  user.queue('hello', 'world');
+  user.on('hello', function(val) {
     //world
   });
 ```
