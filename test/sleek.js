@@ -56,11 +56,18 @@ describe("format/compute", function() {
 
 	it('should format if property exist', function() {
 		user('beep', function(str) {
-			console.log(str);
 			return str.toUpperCase();
 		});
 
 		assert.equal(user('beep'), 'BOOP');
+	});
+
+	it('should compute if property does not exist', function() {
+		user('hello', function() {
+			return this.beep + '!';
+		});
+
+		assert.equal(user('hello'), 'boop!');
 	});
 });
 

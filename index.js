@@ -31,8 +31,10 @@ function sleek(data) {
       if(typeof value === 'function') {
         if(store.has(key)) {
           store.format(key, value);
-          return model;
+        } else {
+          store.compute(key, value);
         }
+        return model;
       }
       return model.set(key, value);
     }
