@@ -32,6 +32,8 @@ user('path');
 // http://github.com/bredele
 ```
 
+Here's a live example:
+
 [![view on requirebin](http://requirebin.com/badge.png)](http://requirebin.com/?gist=c3241f2d128beba1f4bc)
 
 ## API
