@@ -159,3 +159,22 @@ describe('delete', function() {
 		user.del('beep');
 	});
 });
+
+describe('reset', function() {
+	var user;
+	beforeEach(function() {
+		user = model({
+			beep: 'boop'
+		});
+	});
+
+	it('should reset data', function() {
+		user({
+			foo: 'bar'
+		}, true);
+
+		assert.equal(user('foo'), 'bar');
+		assert.equal(user('beep'), undefined);
+	});
+
+});
