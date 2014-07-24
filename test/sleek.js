@@ -45,3 +45,22 @@ describe("setter/getter", function() {
 	});
 	
 });
+
+describe("format/compute", function() {
+	var user;
+	beforeEach(function() {
+		user = model({
+			beep: 'boop'
+		});
+	});
+
+	it('should format if property exist', function() {
+		user('beep', function(str) {
+			console.log(str);
+			return str.toUpperCase();
+		});
+
+		assert.equal(user('beep'), 'BOOP');
+	});
+});
+

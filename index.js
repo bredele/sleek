@@ -27,7 +27,15 @@ function sleek(data) {
       if(typeof key === 'object') return model.set(key);
       return model.get(key);
     }
-    else return model.set(key, value);
+    else {
+      if(typeof value === 'function') {
+        if(store.has(key)) {
+          store.format(key, value);
+          return model;
+        }
+      }
+      return model.set(key, value);
+    }
   };
 
   model.set = function(key, value) {
