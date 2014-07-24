@@ -178,3 +178,20 @@ describe('reset', function() {
 	});
 
 });
+
+describe('use (mixin)', function() {
+	var user;
+	beforeEach(function() {
+		user = model({
+			beep: 'boop'
+		});
+	});
+
+	it('should mixin store', function() {
+		user(function(store, ola) {
+			this.hello = ola;
+		}, 'world');
+		assert.equal(user.hello, 'world');
+	});
+
+});

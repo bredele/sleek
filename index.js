@@ -24,6 +24,10 @@ function sleek(data) {
 
   var model = function(key, value) {
     var type = typeof key;
+    if(type === 'function') {
+      model.use.apply(model, arguments);
+      return model;
+    }
     if(value === undefined) {
       if(type === 'object') return model.set(key);
       return model.get(key);
@@ -61,7 +65,7 @@ function sleek(data) {
   model.once = function() {
     store.once.apply(store, arguments);
     return model;
-  }
+  };
 
   model.set = function(key, value) {
     store.set(key, value);
@@ -80,7 +84,12 @@ function sleek(data) {
   model.reset = function(data) {
     store.reset(data);
     return model;
-  }
+  };
+
+  model.use = function() {
+    store.use.apply(model, arguments);
+    return model;
+  };
 
   return model;
 }
