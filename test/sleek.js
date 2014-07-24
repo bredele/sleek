@@ -151,4 +151,11 @@ describe('delete', function() {
 		user.del('beep');
 		assert.equal(user('beep'), undefined);
 	});
+
+	it('should emit a deleted event', function(done) {
+		user.on('deleted', function() {
+			done();
+		});
+		user.del('beep');
+	});
 });
