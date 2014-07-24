@@ -46,6 +46,22 @@ describe("setter/getter", function() {
 	
 });
 
+describe('emitter', function() {
+
+	var user;
+	beforeEach(function() {
+		user = model({
+			beep: 'boop'
+		});
+	});
+
+	it('should be an emitter', function(done) {
+		user.on('hello', done);
+		user.emit('hello');
+	});
+
+});
+
 describe("format/compute", function() {
 	var user;
 	beforeEach(function() {

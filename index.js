@@ -40,6 +40,16 @@ function sleek(data) {
     }
   };
 
+  model.emit = function() {
+    store.emit.apply(store, arguments);
+    return model;
+  };
+
+  model.on = function() {
+    store.on.apply(store, arguments);
+    return model;
+  };
+
   model.set = function(key, value) {
     store.set(key, value);
     return model;
