@@ -101,7 +101,7 @@ user({
   github: 'bredele',
   city: 'calgary'	
 }, true);
-// name has been erase
+// name has been erased
 ```
 
   > alias `user.reset` (see [datastore](http://github.com/bredele/datastore#resetdata))
