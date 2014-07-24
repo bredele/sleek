@@ -18,22 +18,41 @@ var handlers = [
   'set'
 ];
 
-/**
- * Expose 'sleek'
- */
-
-module.exports = sleek;
-
 
 /**
- * sleek constructor.
+ * Sleek factory.
+ *
+ * @param {Object|Array} data
+ * @return {Function}
  * @api public
  */
 
-function sleek(data) {
+module.exports = function(data) {
 
+  /**
+   * Data store.
+   * @type {Store}
+   * @api private
+   */
+  
   var store = new Store(data);
 
+
+  /**
+   * Sleek store.
+   *
+   * A sleek store is a convenient function
+   * to set, get, update, reset, format, compute
+   * or mixin your data.
+   * 
+   * Examples:
+   *
+   *   user('name'); //get
+   *   user('name', 'olivier'); //set
+   * 
+   * @api public
+   */
+  
   var model = function(key, value) {
     var type = typeof key;
     if(type === 'function') {
@@ -59,17 +78,9 @@ function sleek(data) {
     }
   };
 
-  function storify(name) {
-    model[name] = function() {
-      store[name].apply(store, arguments);
-      return model;
-    };
-  }
 
-  for(var l = handlers.length; l--;) {
-    storify(handlers[l]);
-  }
-
+  // mixins
+  
   model.get = function(key) {
     return store.get(key);
   };
@@ -79,6 +90,19 @@ function sleek(data) {
     return model;
   };
 
+  // todo:use looping
+  
+  for(var l = handlers.length; l--;) {
+    storify(handlers[l]);
+  }
+
+  function storify(name) {
+    model[name] = function() {
+      store[name].apply(store, arguments);
+      return model;
+    };
+  }
+
   return model;
-}
+};
 
