@@ -1,7 +1,7 @@
 sleek
 =====
 
-  A stylish version of [datastore](http://github.com/bredele/datastore).
+  An elegant and stylish version of [datastore](http://github.com/bredele/datastore).
 
 ## Installation
 
@@ -43,6 +43,8 @@ var user = sleek({
 	name: 'bredele'
 });
 ```
+
+  the `data` can be an object as well as an array, see [collection](#collection) for more details
 
 ### set
 
@@ -193,6 +195,27 @@ to queue events.
   user.on('hello', function(val) {
     //world
   });
+```
+
+## Collection
+
+  sleek is a uniq interface for your models and **collections**. Here's a simple example:
+
+```js
+var users = sleek([{
+  name: 'olivier'
+}, {
+  name: 'bob'
+}]);
+
+users(0);
+// => { name : 'olivier'}
+
+users(1, {
+  name: 'bruno'
+});
+users(1);
+// => { name : 'bruno'}
 ```
 
 ## License
