@@ -1,0 +1,14 @@
+{
+  "name": "sleek",
+  "repo": "bredele/sleek",
+  "description": "a stylish version of datastore",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}
