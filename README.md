@@ -4,11 +4,11 @@ sleek
   An elegant and stylish version of [datastore](http://github.com/bredele/datastore).
 
   sleek is an observable and polymorphic interface to :
-    - get
-    - set, update or reset
-    - format
-    - compute
-    - or extend your data with plugins.
+  - get
+  - set, update or reset
+  - format
+  - compute
+  - or extend your data with plugins.
 
 ## Installation
 
