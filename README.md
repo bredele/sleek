@@ -65,7 +65,7 @@ var user = sleek({
 user('name','olivier');
 ```
 
-  > alias `user.set` (see [datastore](http://github.com/bredele/datastore))
+  > alias `user.set` (see [datastore](http://github.com/bredele/datastore#setname-data))
 
 ### get
 
@@ -75,7 +75,7 @@ user('name','olivier');
 user('name');
 ```
 
-  > alias `user.get` (see [datastore](http://github.com/bredele/datastore))
+  > alias `user.get` (see [datastore](http://github.com/bredele/datastore#getname))
 
 ### update
 
@@ -89,7 +89,7 @@ user({
 // name is still there
 ```
 
-  > alias `user.set` (see [datastore](http://github.com/bredele/datastore))
+  > alias `user.set` (see [datastore](http://github.com/bredele/datastore#setname-data))
 
 
 ### .reset(data)
@@ -104,7 +104,7 @@ user({
 // name has been erase
 ```
 
-  > alias `user.reset` (see [datastore](http://github.com/bredele/datastore))
+  > alias `user.reset` (see [datastore](http://github.com/bredele/datastore#resetdata))
 
 ### format
 
@@ -116,7 +116,7 @@ user('name', function(str) {
 });
 ```
 
-  > alias `user.format` (see [datastore](http://github.com/bredele/datastore))
+  > alias `user.format` (see [datastore](http://github.com/bredele/datastore#formatname-fn))
 
 ### compute
 
@@ -130,7 +130,7 @@ user('nickname', function() {
 
   A computed property is automatically updated.
 
-  > alias `user.compute` (see [datastore](http://github.com/bredele/datastore))
+  > alias `user.compute` (see [datastore](http://github.com/bredele/datastore#computename-fn))
 
 
 ### plugin
@@ -143,7 +143,7 @@ user(function(store, str) {
 }, 'hello');
 ```
 
-  > alias `user.use` (see [datastore](http://github.com/bredele/datastore))
+  > alias `user.use` (see [datastore](http://github.com/bredele/datastore#usefn))
 
 ### del
 
