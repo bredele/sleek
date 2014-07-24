@@ -50,6 +50,16 @@ function sleek(data) {
     return model;
   };
 
+  model.off = function() {
+    store.off.apply(store, arguments);
+    return model;
+  };
+
+  model.once = function() {
+    store.once.apply(store, arguments);
+    return model;
+  }
+
   model.set = function(key, value) {
     store.set(key, value);
     return model;

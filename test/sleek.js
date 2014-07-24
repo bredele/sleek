@@ -55,9 +55,21 @@ describe('emitter', function() {
 		});
 	});
 
-	it('should be an emitter', function(done) {
+	it('should listen events', function(done) {
 		user.on('hello', done);
 		user.emit('hello');
+	});
+
+	it('should listen once', function() {
+		var called = 0;
+		user
+		  .once('hello', function() {
+			  called++;
+		  })
+		  .emit('hello')
+		  .emit('hello');
+
+		assert.equal(called, 1);
 	});
 
 });
