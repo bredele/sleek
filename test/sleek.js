@@ -72,6 +72,17 @@ describe('emitter', function() {
 		assert.equal(called, 1);
 	});
 
+	it('should remove listener', function(done) {
+		user
+		  .on('hello', done)
+		  .on('world', done)
+		  .off()
+		  .emit('hello', 'error')
+		  .emit('world', 'error');
+
+		done();
+	});
+
 });
 
 describe("format/compute", function() {
