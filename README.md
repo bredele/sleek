@@ -30,26 +30,26 @@ user('path');
 user('github', 'bredele');
 user('path');
 // http://github.com/bredele
-
 ```
 
 ## API
 
 ### constructor
 
-  Create a new store with the given `data` (Object or Array).
+  Create a new sleek store with optional `data`.
 
 ```js
 var sleek = require('sleek');
 
-var user = sleek();
+var user = sleek({
+	name: 'bredele'
+});
 ```
 
 ### set
 
  Set an attribute `name`.
 
-object store:
 ```js
 user('name','olivier');
 ```
@@ -93,7 +93,7 @@ user({
 // name has been erase
 ```
 
-  
+  > alias `user.reset` (see [datastore](http://github.com/bredele/datastore))
 
 ### format
 

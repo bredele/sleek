@@ -4,7 +4,19 @@
  */
 
 var Store = require('datastore');
-
+var handlers = [
+  'loop',
+  'pipe',
+  'del',
+  'reset',
+  'format',
+  'compute',
+  'emit',
+  'on',
+  'once',
+  'off',
+  'set'
+];
 
 /**
  * Expose 'sleek'
@@ -35,9 +47,9 @@ function sleek(data) {
     else {
       if(typeof value === 'function') {
         if(store.has(key)) {
-          store.format(key, value);
+          model.format(key, value);
         } else {
-          store.compute(key, value);
+          model.compute(key, value);
         }
         return model;
       } else if(type === 'object' && value) {
@@ -47,43 +59,19 @@ function sleek(data) {
     }
   };
 
-  model.emit = function() {
-    store.emit.apply(store, arguments);
-    return model;
-  };
+  function storify(name) {
+    model[name] = function() {
+      store[name].apply(store, arguments);
+      return model;
+    };
+  }
 
-  model.on = function() {
-    store.on.apply(store, arguments);
-    return model;
-  };
-
-  model.off = function() {
-    store.off.apply(store, arguments);
-    return model;
-  };
-
-  model.once = function() {
-    store.once.apply(store, arguments);
-    return model;
-  };
-
-  model.set = function(key, value) {
-    store.set(key, value);
-    return model;
-  };
+  for(var l = handlers.length; l--;) {
+    storify(handlers[l]);
+  }
 
   model.get = function(key) {
     return store.get(key);
-  };
-
-  model.del = function(key) {
-    store.del(key);
-    return model;
-  };
-
-  model.reset = function(data) {
-    store.reset(data);
-    return model;
   };
 
   model.use = function() {
